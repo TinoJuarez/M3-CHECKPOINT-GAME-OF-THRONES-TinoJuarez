@@ -15,6 +15,15 @@ const ordenarPorEdad = require("../controllers/05-controller");
 
 router.get("/personajesOrdenados", (req, res) => {
   // Tu código aquí
+
+  try {
+    const personajesOrdenados = ordenarPorEdad();
+    res.status(200).json(personajesOrdenados)
+  } catch (error) {
+    res.status(400).json({error: error.message })
+    
+  }
+
 });
 
 //⚠️ No modificar nada debajo de esta línea ⚠️

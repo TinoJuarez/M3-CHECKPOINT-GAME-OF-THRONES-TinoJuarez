@@ -23,6 +23,16 @@ const utils = require("../utils");
 
 const addPersonaje = (personaje) => {
   // Tu código aquí
+
+  const existePersonaje = utils.personajes.find((p) => p.nombre === personaje.nombre);
+  
+    if (existePersonaje) {
+      throw new Error('Ya existe ese personaje');
+    }
+  
+    utils.personajes.push(personaje);
+  
+    return utils.personajes;
 };
 
 // ⚠️ No modificar nada debajo de esta línea ⚠️

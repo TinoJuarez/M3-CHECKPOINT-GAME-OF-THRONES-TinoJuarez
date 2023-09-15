@@ -14,6 +14,26 @@ const utils = require("../utils");
 
 const updatePersonaje = (personaje) => {
   // Tu código aquí
+
+  const { id, nombre, numeroEpisodio, casa } = personaje
+
+  if(!nombre || !numeroEpisodio || !casa){
+    throw new Error("Faltan datos a completar")
+  }
+
+  const personajeEncontrado = utils.personajes.find((personaje) => personaje.id === id )
+
+  if(!personajeEncontrado){
+    throw new Error("No se encontró el personaje solicitado")
+  }
+
+  personajeEncontrado.nombre = nombre
+  personajeEncontrado.numeroEpisodio = numeroEpisodio
+  personajeEncontrado.casa = casa
+
+  return personajeEncontrado
+
+  
 };
 
 // ⚠️ No modificar nada debajo de esta línea ⚠️

@@ -15,6 +15,22 @@ const utils = require("../utils");
 
 const mostrarLaEdadMedia = () => {
   // Tu código aquí
+
+  if (utils.personajes.length === 0){
+    throw new Error("No tenemos valores");
+  } 
+
+  let sumaTotal = 0;
+  let totalPersonajes = utils.personajes.length;
+
+  utils.personajes.forEach((personaje) => {
+    sumaTotal += personaje.edad
+  })
+
+  const mediaEdades = Math.trunc(sumaTotal / totalPersonajes);
+
+  return mediaEdades;
+
 };
 
 //⚠️ No modificar nada debajo de esta línea ⚠️

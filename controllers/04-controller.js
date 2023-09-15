@@ -10,6 +10,16 @@ const utils = require("../utils");
 
 const deletePersonaje = (personajeID) => {
   // Tu código aquí
+
+  const nuevoArrayPersonajes = utils.personajes.filter((personaje) => personaje.id !== personajeID)
+
+  if (nuevoArrayPersonajes.length === utils.personajes.length){
+    throw new Error(`No existe el personaje con id: ${personajeID}`)
+  }
+  utils.personajes = nuevoArrayPersonajes;
+
+  return utils.personajes;
+
 };
 
 // ⚠️ No modificar nada debajo de esta línea ⚠️

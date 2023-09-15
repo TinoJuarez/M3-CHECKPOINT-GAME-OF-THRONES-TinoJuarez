@@ -15,6 +15,15 @@ const mostrarLaEdadMedia = require("../controllers/06-controller");
 
 router.get("/mostrarLaEdadMedia", (req, res) => {
   // Tu código aquí
+
+  try {
+    const promedio = mostrarLaEdadMedia();
+    res.status(200).json({results: promedio})
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+    
+  }
+
 });
 
 //⚠️ No modificar nada debajo de esta línea ⚠️

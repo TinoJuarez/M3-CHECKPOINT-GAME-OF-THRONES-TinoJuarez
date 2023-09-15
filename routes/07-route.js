@@ -17,6 +17,18 @@ const addPersonaje = require("../controllers/01-controller");
 
 router.post("/personaje", (req, res) => {
   // Tu código aquí
+
+  const { personaje } = req.body;
+
+    try {
+      const resultado = addPersonaje(personaje)
+      res.status(201).json({ data: resultado })
+
+      
+    } catch (error) {
+      res.status(400).json({ error: error.message })
+    }
+
 });
 
 //⚠️ No modificar nada debajo de esta línea ⚠️

@@ -13,6 +13,15 @@ const utils = require("../utils");
 
 const filtroPorEdad = (edad) => {
   // Tu código aquí
+
+const personajesMenores = utils.personajes.filter((personaje) => personaje.edad <= edad )
+
+  if (personajesMenores.length === 0){
+    throw new Error("No hay personajes igual o menores a la edad solicitada");
+  }
+
+  return personajesMenores;
+  
 };
 
 // ⚠️ No modificar nada debajo de esta línea ⚠️
